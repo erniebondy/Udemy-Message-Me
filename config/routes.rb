@@ -11,4 +11,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  ####################################################################################################
+
+  root "chatroom#index"
+
+  ## On the request 'get', asking for 'login', where does it route?
+  # get "login", to: "sessions#new"
+  get "login", to: "sessions#new"
 end
