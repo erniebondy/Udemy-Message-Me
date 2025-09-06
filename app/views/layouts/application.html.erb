@@ -2,13 +2,18 @@
 <html>
   <head>
     <title><%= content_for(:title) || "Message Me" %></title>
+    <%# https://gauger.io/fonticon/ %>
+    <%# Load custom fav icon. Ensure 'load path' is defined in package.json %>
+    <%= favicon_link_tag %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= yield :head %>
+
+    <%#= puts "--------------------- "%>
+    <%#= puts "path #{favicon_link_tag}" %>
 
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
@@ -20,6 +25,7 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%#= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "custom", "data-turbo-track": "reload" %>
     <%#= javascript_importmap_tags %>
     <%#= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
@@ -27,6 +33,54 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="ui menu left sidebar inverted vertical visible">
+      
+      <div class="item">
+        <div class="header">Users</div>
+        <div class="menu">
+          <div class="item">
+            <div class="ui button fluid small inverted basic pink">Sign up</div>
+          </div>
+          <div class="item">
+            <div class="ui button fluid small inverted basic">Log-in</div>
+          </div>
+        </div>
+
+        <div class= "ui item">
+          <div class= "ui dropdown fluid floating">
+            <i class= "icon dropdown"></i>
+            Account 
+            <div class="ui menu fluid">
+              <div class= "item">Login</div>
+              <div class= "item">Logout</div>
+              <div class= "item">Other</div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="item">
+        <div class="header">Nav</div>
+        <div class="menu">
+          <a class="item">Chatroom</a>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="header">Support</div>
+        <div class="menu">
+          <a class="item">E-mail Support</a>
+          <a class="item"><i class="ca flag">FAQs</i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class= "pusher">
+      <div class= "ui container">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

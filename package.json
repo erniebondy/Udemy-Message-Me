@@ -2,7 +2,7 @@
   "name": "app",
   "private": true,
   "scripts": {
-    "build": "esbuild app/javascript/application.js --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --loader:.woff=file --loader:.woff2=file --loader:.ttf=file --loader:.eot=file --loader:.svg=file --loader:.png=file",
+    "build": "esbuild app/javascript/application.js --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --public-path=/assets/images --loader:.woff=file --loader:.woff2=file --loader:.ttf=file --loader:.eot=file --loader:.svg=file --loader:.png=file",
     "build:watch": "yarn build --watch",
     "postbuild": "mkdir -p app/assets/builds/assets && cp node_modules/fomantic-ui-css/themes/default/assets/fonts/* app/assets/builds/assets/"
   },
