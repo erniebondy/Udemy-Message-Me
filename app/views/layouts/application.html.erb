@@ -42,7 +42,7 @@
             <div class="ui button fluid small inverted basic pink">Sign up</div>
           </div>
           <div class="item">
-            <div class="ui button fluid small inverted basic">Log-in</div>
+            <%= link_to "Login", login_path, class: "ui button fluid small inverted basic" %>
           </div>
         </div>
 
@@ -63,7 +63,7 @@
       <div class="item">
         <div class="header">Nav</div>
         <div class="menu">
-          <a class="item">Chatroom</a>
+          <%= link_to "Chatroom", root_path, class: "item" %>
         </div>
       </div>
 
@@ -78,9 +78,9 @@
     </div>
 
     <div class= "pusher">
-      <div class= "ui container">
+      <%# <div class= "ui container"> %>
         <%= yield %>
-      </div>
+      <%# </div> %>
     </div>
   </body>
 </html>
