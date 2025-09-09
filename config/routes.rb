@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   ## On the request 'get', asking for 'login', where does it route?
   # get "login", to: "sessions#new"
   get "login", to: "sessions#new"
+  post "login", to: "sessions#create"
+  delete "logout", to: "sessions#destroy"
 end
