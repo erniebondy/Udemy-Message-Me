@@ -11,23 +11,27 @@
 
       <div class= "ui card raised fluid chatbox">
         <div class= "content">
-          <div class="ui feed fluid">
+          <div class="ui feed">
             <%= render @messages %>
           </div>
         </div>
         
         <div class= "content extra">
-          <div class="ui icon input fluid">
-            <input type="text" placeholder="Say something...">
-            <i class="comments link icon"></i>
-          </div>
+          <%= form_with scope: :message, class: "ui reply form", url: message_path, data: { turbo: false } do |f| %>
+            <div class= "field">
+              <div class="ui icon input fluid">
+                <%= f.text_field :body %>
+                <%= f.button '<i class="comments link icon"></i>'.html_safe %>
+              </div>
+            </div>
+          <% end %>
         </div>
 
       </div>
     </div>
 
     <div class= "column four wide">
-      <div class= "ui card raised fluid chatbox">
+      <div class= "ui card raised chatbox">
         <div class= "content">
           <div class="ui menu fluid inverted vertical tall">
             <a class="item active">

@@ -33,57 +33,68 @@
   </head>
 
   <body>
-    <div class="ui menu left sidebar inverted vertical visible">
-      
-      <div class="item">
-        <div class="header">Users</div>
-        <div class="menu">
-          <div class="item">
-            <div class="ui button fluid small inverted basic pink">Sign up</div>
-          </div>
-          <div class="item">
-            <%= link_to "Login", login_path, class: "ui button fluid small inverted basic" %>
-          </div>
-        </div>
 
-        <div class= "ui item">
-          <div class= "ui dropdown fluid floating">
-            <i class= "icon dropdown"></i>
-            Account 
-            <div class="ui menu fluid">
-              
-              <% if logged_in? %>
-                <%#= link_to "Logout", logout_path, class: "item", data: { turbo_method: :delete } %>
-                <%= link_to "Logout", logout_path, class: "item", data: {turbo_method: :delete} %>
-              <% end %>
-              <div class= "item">Other</div>
+    <div class= "ui segments horizontal basic">
+
+      <!-- reduce padding to fill out segment -->
+      <div class= "ui segment compact" style= "padding: 2px;">
+
+        <!-- table-cell to fit in segment -->
+        <div class="ui menu vertical inverted small" style= "display: table-cell; height: 500px">
+
+          <div class="item">
+            <div class="header">Users</div>
+            <div class="menu">
+              <div class="item">
+                <div class="ui button fluid small inverted basic pink">Sign up</div>
+              </div>
+              <div class="item">
+                <%= link_to "Login", login_path, class: "ui button fluid small inverted basic" %>
+              </div>
+            </div>
+
+            <div class= "ui item">
+              <div class= "ui dropdown fluid floating">
+                <i class= "icon dropdown"></i>
+                Account 
+                <div class="ui menu fluid">
+                  
+                  <% if logged_in? %>
+                    <%= link_to "Logout", logout_path, class: "item", data: {turbo_method: :delete} %>
+                  <% end %>
+                  <div class= "item">Other</div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+
+          <div class="item">
+            <div class="header">Nav</div>
+            <div class="menu">
+              <%= link_to "Chatroom", root_path, class: "item" %>
             </div>
           </div>
-        </div>
-        
-      </div>
-      
-      <div class="item">
-        <div class="header">Nav</div>
-        <div class="menu">
-          <%= link_to "Chatroom", root_path, class: "item" %>
-        </div>
-      </div>
 
-      <div class="item">
-        <div class="header">Support</div>
-        <div class="menu">
-          <a class="item">E-mail Support</a>
-          <a class="item"><i class="ca flag">FAQs</i></a>
-        </div>
-      </div>
+          <div class="item">
+            <div class="header">Support</div>
+            <div class="menu">
+              <a class="item">E-mail Support</a>
+              <a class="item"><i class="ca flag">FAQs</i></a>
+            </div>
+          </div>
 
-    </div>
+        </div> <!-- menu side bar -->
 
-    <div class= "pusher">
-      <%# <div class= "ui container"> %>
+      </div> <!-- segment -->
+    
+      <div class= "ui segment">
+        <%= render "layouts/messages" %>
         <%= yield %>
-      <%# </div> %>
-    </div>
+      </div>
+
+    </div> <!-- segments horizontal -->
+
   </body>
+
 </html>

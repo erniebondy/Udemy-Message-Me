@@ -1,18 +1,17 @@
-<div class= "ui segment container basic">
-  <h2 class="ui center aligned header">
-      Welcome to MessageMe
-  </h2>
+<h2 class="ui center aligned header">
+    Welcome to MessageMe
+</h2>
 
-  <h2 class="ui icon header center aligned">
-    <i class="circular icon power pink inverted"></i>
-    Login to continue
-  </h2>
+<h2 class="ui icon header center aligned">
+  <i class="circular icon power pink inverted"></i>
+  Login to continue
+</h2>
 
-  <div class= "ui segment basic">
+<div class= "ui segment basic">
 
   <div class="ui placeholder segment">
     <div class="ui two column very relaxed stackable grid">
-       <div class="column">
+        <div class="column">
         
         <%= form_with scope: :session, class: "ui form", local: true, data: { turbo: false }  do |f| %>
           <div class="field">
@@ -34,8 +33,6 @@
 
         <% end %>
 
-        
-
       </div>
       
       <div class="middle aligned column">
@@ -52,8 +49,6 @@
       </div>
     </div>
 
-  </div>
+  </div> <!-- segment placeholder -->
 
-  </div>
-
-</div>
+</div> <!-- segment -->

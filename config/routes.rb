@@ -14,11 +14,13 @@ Rails.application.routes.draw do
   ####################################################################################################
 
   root "chatroom#index"
-  # root "pages#home"
+  # get "home", to: "pages#home"
 
   ## On the request 'get', asking for 'login', where does it route?
   # get "login", to: "sessions#new"
   get "login", to: "sessions#new"
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
+
+  post "message", to: "messages#create"
 end
