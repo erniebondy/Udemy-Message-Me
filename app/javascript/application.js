@@ -11,6 +11,8 @@
 import "@hotwired/turbo-rails"     // enables turbo:load / turbo:render events
 import "jquery";        // UMD build attaches to window as jQuery/$
 import "fomantic-ui";   // reads window.jQuery
+import "channels"                 // loads the subscription above
+// OR: import "channels/chatroom_channel" directly
 
 function initUI() {
   const $ = window.jQuery || window.$;

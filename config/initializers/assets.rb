@@ -9,6 +9,7 @@ Rails.application.config.assets.paths << Rails.root.join("app/assets/")
 ### Imagine the paths are 'prepended' to the importmap pins
 Rails.application.config.assets.paths << Rails.root.join("node_modules/jquery")
 Rails.application.config.assets.paths << Rails.root.join("node_modules/fomantic-ui-css")
+# Rails.application.config.assets.paths << Rails.root.join("javascript")
 
 Rails.application.config.assets.paths << "app/assets/stylesheets"
 Rails.application.config.assets.paths << "app/assets/images"
