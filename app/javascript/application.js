@@ -1,50 +1,36 @@
-/* SEE APP/ASSETS/BUILDS/APPLICATION.JS for file that is being served */
+// // Initialize components
+// $('.ui.dropdown').dropdown();
+// $('.ui.accordion').accordion();
+// $('.ui.checkbox').checkbox();
 
-
-// From ChatGPT
-//import $ from "jquery";
-//window.$ = window.jQuery = $;
-
-// // 1) Make jQuery global ASAP
-// import jq from "jquery";
-// window.$ = window.jQuery = jq;
-// globalThis.$ = jq;            // extra-safe
-// globalThis.jQuery = jq;       // extra-safe
-
-// import "@hotwired/turbo-rails"
-// import "./controllers"
-
-// //import "fomantic-ui-css/semantic.min.js";
-// import "fomantic-ui-css/semantic.min.css";
-
-// // 4) Load Fomantic JS only after jQuery is guaranteed to exist
-// document.addEventListener("turbo:load", async () => {
-//   // if something wiped it out, set again
-//   if (!window.jQuery) {
-//     const { default: $ } = await import("jquery");
-//     window.$ = window.jQuery = $;
-//     globalThis.$ = $;
-//     globalThis.jQuery = $;
-//   }
-
-  
-
-//   // Dynamically import Fomantic's JS now that jQuery is global
-//   await import("fomantic-ui-css/semantic.min.js");
-
-//   // Initialize components
-//   $('.ui.dropdown').dropdown();
-//   $('.ui.accordion').accordion();
-//   $('.ui.checkbox').checkbox();
-
-//   $('.message .close').on('click', function() {
-//     $(this).closest('.message').transition('fade');
-//     console.log("MSG CLOSE")
-//   });
-
-  
-  
-
+// $('.message .close').on('click', function() {
+//   $(this).closest('.message').transition('fade');
 // });
 
 // console.log("HERHEHREHHRE")
+import "@hotwired/turbo-rails"     // enables turbo:load / turbo:render events
+import "jquery";        // UMD build attaches to window as jQuery/$
+import "fomantic-ui";   // reads window.jQuery
+
+function initUI() {
+  const $ = window.jQuery || window.$;
+  if (!$) { console.warn("jQuery not found"); return; }
+
+  $('.ui.dropdown').dropdown();
+  $('.ui.accordion').accordion();
+  $('.ui.checkbox').checkbox();
+
+  $('.message .close').on('click', function() {
+    $(this).closest('.message').transition('fade');
+  });
+
+  console.log("UI initialized");
+}
+
+// First load and subsequent Turbo renders (back/forward cache)
+document.addEventListener("turbo:load", initUI);
+document.addEventListener("turbo:render", initUI);
+
+// Optional: prove the file itself executed
+console.log("application.js loaded");
+

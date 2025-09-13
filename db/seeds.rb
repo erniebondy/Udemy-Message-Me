@@ -9,3 +9,6 @@
 #   end
 
 User.create(username: "ewb", password: "pass1")
+Message.create(body: "this is a test msg", user_id: 1)
+Message.create(body: "rails is 'fun'", user_id: 1)
+Message.create(body: "just user jsadn", user_id: 1)

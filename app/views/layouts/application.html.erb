@@ -25,10 +25,15 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%#= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "semantic.min.css", "data-turbo-track": "reload" %>
+    <%#= stylesheet_link_tag "fomantic-ui-css/semantic.min.css", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "custom", "data-turbo-track": "reload" %>
-    <%#= javascript_importmap_tags %>
+    <%= javascript_importmap_tags %>
     <%#= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%#= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%#= javascript_include_tag "dist/jquery.min.js", "data-turbo-track": "reload", defer: true %>
+    <%#= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%#= javascript_include_tag "semantic.min.js", "data-turbo-track": "reload", defer: true %>
     
   </head>
 
