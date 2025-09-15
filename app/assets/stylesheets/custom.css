@@ -12,6 +12,10 @@
   border: 1px solid red !important;
 }
 
+#messages {
+  height: 15em;
+  overflow: auto;
+}
 
 
 @media (width <= 780px) {
@@ -25,5 +29,3 @@
     display: none !important;
   }
 }
-
-/* style= "display: none" */

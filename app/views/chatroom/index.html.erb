@@ -10,18 +10,25 @@
     <div class= "column twelve wide">
 
       <div class= "ui card raised fluid chatbox">
-        <div class= "content">
-          <div class="ui feed">
+        <%# This will need to accommodate for scrolling %>
+        <div class= "content" id= "messages">
+          <div class= "ui feed" id= "message-container">
+            <%# This renders the messages/_message partial %>
+            <%# and creates an instance variable 'message' %>
+            <%# to be used in the partial to access the class %>
             <%= render @messages %>
           </div>
         </div>
         
         <div class= "content extra">
-          <%= form_with scope: :message, class: "ui reply form", url: message_path, data: { turbo: false } do |f| %>
+          <%# method: :post %>
+          <%# url: message_path %>
+          <%# Use the model: Model_Name so Rails can infer the route and method %>
+          <%= form_with model: Message, class: "ui reply form" do |f| %>
             <div class= "field">
               <div class="ui icon input fluid">
                 <%= f.text_field :body %>
-                <%= f.button '<i class="comments link icon"></i>'.html_safe %>
+                <%#= f.button '<i class="comments link icon"></i>'.html_safe %>
               </div>
             </div>
           <% end %>
